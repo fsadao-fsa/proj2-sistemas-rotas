@@ -1,6 +1,8 @@
 div.topbanner {
     height: 200px;
     background-color: #EFEFEF;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 center.topbanner {
@@ -12,5 +14,11 @@ center.topbanner {
     text-align: center;
     /* background-color: aqua; */
     width: 99%;
+}
 
+/* tratamento responsivo */
+@media(max-width: 1100px) {
+    img.topbanner {
+        display: none;
+    }
 }
