@@ -17,7 +17,7 @@ center.topbanner {
 }
 
 /* tratamento responsivo */
-@media(max-width: 1100px) {
+@media(max-width: 1090px) {
     img.topbanner {
         display: none;
     }
