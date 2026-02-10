@@ -1,0 +1,12 @@
+div.home {
+    background-color: #EFEFEF;
+    color: #707070;
+    margin-top: 0px;
+    padding: 10px;
+    min-height: 350px;
+}
+
+h1.home {
+    font-size: 38px;
+
+}
