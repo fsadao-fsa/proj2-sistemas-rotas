@@ -1,3 +1,4 @@
+import { Mainbody } from "./components/mainbody";
 import { Topbar } from "./components/topbar";
 import { Topbanner } from "./components/topbar/topbanner";
 import "./global.css";
@@ -9,6 +10,7 @@ function App() {
     <>
       <Topbar />
       <Topbanner />
+      <Mainbody />
     </>
   );
 }
