@@ -1,4 +1,7 @@
 import "./style.css";
+import { BsFilePlusFill as PlusIcon } from "react-icons/bs";
+import { BsFileMinusFill as MinusIcon } from "react-icons/bs";
+
 
 export function Home() {
     return (
@@ -11,7 +14,13 @@ export function Home() {
                 <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Digite a Nota" /></p>
 
                 <h3 className="home-form">Elenco:</h3>
-                <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Nome do Ator" /></p>
+                <p className="home-form">
+
+                    <div><input className="home-form" size={40} type="text" placeholder="Nome do Ator" /></div>
+                    <div><MinusIcon size={25} className="home-form-icon" /></div>
+                    <div><PlusIcon size={25} className="home-form-icon" /></div>
+
+                </p>
 
             </div>
         </div>
