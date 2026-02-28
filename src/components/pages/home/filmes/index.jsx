@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BACKEND_URL } from "../../../../config";
 import { Filmecard } from "../../../filmeCard";
+import { Atores } from "../atores";
 
 function filmesHandler(filmes) {
     if (!Array.isArray(filmes)) {
@@ -14,8 +15,18 @@ function filmesHandler(filmes) {
     atores vai ser uma linha do meu vetor iniciando pelo componente 0, 1 ...
     O map irá rodar para cada linha do meu vetor*/
     var content = filmes.map(function (filmes) {
+
+        var elenco = filmes.elenco.map(function (atores) {
+            return atores.nome + ", ";
+        })
+
         return (
-            <Filmecard key={i++} />
+            <Filmecard key={i++} nome
+                title={filmes.nome}
+                diretor={filmes.diretor.nome}
+                cast={elenco}
+                nota={filmes.nota}
+            />
 
         )
     });
@@ -45,7 +56,6 @@ export function Filmes() {
                 console.log("Error:" + error);
             })
             .finally(function () {
-                console.log("Finally.");
             })
 
     }, []);

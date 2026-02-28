@@ -43,7 +43,6 @@ export function Diretores() {
                 console.log("Error:" + error);
             })
             .finally(function () {
-                console.log("Finally.");
             })
 
     }, []);

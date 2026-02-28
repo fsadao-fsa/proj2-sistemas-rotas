@@ -1,14 +1,14 @@
 import "./style.css";
 //nap preciso dos <></> devido colocar todos dentro de uma <div>
-export function Filmecard() {
-
+export function Filmecard(props) {
+    console.log(props);
     return (
         //<>
         <div className="filmecard">
-            <h2>FILME</h2>
-            <div>Diretor</div>
-            <div>Elenco</div>
-            <div>Nota</div>
+            <h2>{props.title}</h2>
+            <div>{props.diretor}</div>
+            <div>{props.cast}</div>
+            <div>{props.nota}</div>
         </div>
         //</>
     );

@@ -41,7 +41,6 @@ export function Atores() {
                 console.log("Error:" + error);
             })
             .finally(function () {
-                console.log("Finally.");
             })
 
     }, []);
