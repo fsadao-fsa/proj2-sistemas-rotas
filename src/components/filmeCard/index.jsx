@@ -5,10 +5,14 @@ export function Filmecard(props) {
     return (
         //<>
         <div className="filmecard">
-            <h2>{props.title}</h2>
-            <div>{props.diretor}</div>
-            <div>{props.cast}</div>
-            <div>{props.nota}</div>
+            <h2 className="filmecard-h2">{props.title}</h2>
+            <div className="filmecard-content">
+                <div >
+                    <div><b>Diretor: </b>{props.diretor}</div>
+                    <div><b>Elenco: </b>{props.cast}</div>
+                </div>
+                <div className="filmecard-nota">{props.nota}</div>
+            </div>
         </div>
         //</>
     );
