@@ -3,6 +3,7 @@ import "./style.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BACKEND_URL } from "../../../../config";
+import { Filmecard } from "../../../filmeCard";
 
 function filmesHandler(filmes) {
     if (!Array.isArray(filmes)) {
@@ -14,7 +15,8 @@ function filmesHandler(filmes) {
     O map irá rodar para cada linha do meu vetor*/
     var content = filmes.map(function (filmes) {
         return (
-            <div className="filmes-content" key={i++}>{i + 1} - {filmes.nome}</div>
+            <Filmecard key={i++} />
+
         )
     });
 
