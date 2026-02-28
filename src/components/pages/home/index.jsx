@@ -4,7 +4,16 @@ export function Home() {
     return (
         <div className="content">
             <h1>HOME</h1>
-            <div>CONTEÚDO</div>
+            <div className="home-form">
+                <h3 className="home-form">Inserir novo Filme:</h3>
+                <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Nome do Filme" /></p>
+                <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Nome do Diretor" /></p>
+                <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Digite a Nota" /></p>
+
+                <h3 className="home-form">Elenco:</h3>
+                <p className="home-form"><input className="home-form" size={40} type="text" placeholder="Nome do Ator" /></p>
+
+            </div>
         </div>
     );
 }
