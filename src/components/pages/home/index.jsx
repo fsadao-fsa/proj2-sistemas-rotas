@@ -16,10 +16,14 @@ function createCastInputs(castSize, setCastSize) {
     for (var i = 0; i < castSize; i++) {
         content.push(
             (
-                <p className="home-form">
-                    <div><input className="home-form" size={40} type="text" placeholder="Nome do Ator" /></div>
-                    <div><MinusIcon size={25} className="home-form-icon" onClick={() => decreaseCastSize(castSize, setCastSize)} /></div>
-                    <div><PlusIcon size={25} className="home-form-icon" onClick={() => setCastSize(castSize + 1)} /></div>
+                //toda tag deve ter um key, para diferencia-la das demais, para evitar
+                //que ao recuperar todas as key, ao inves de um key especifica
+                //outro detalhe é que a tag <p> deve estar sempre dentro da tag <div> para
+                //evitar warnings
+                <p className="home-form" key={i}>
+                    <input className="home-form" size={40} type="text" placeholder="Nome do Ator" />
+                    <MinusIcon size={25} className="home-form-icon" onClick={() => decreaseCastSize(castSize, setCastSize)} />
+                    <PlusIcon size={25} className="home-form-icon" onClick={() => setCastSize(castSize + 1)} />
                 </p>
             )
         );
