@@ -33,6 +33,18 @@ function createCastInputs(castSize, setCastSize) {
 
 }
 
+//Esta função irá formatar os dados para o formato json 
+function formDataToJsonMapper(filme, diretor, atores, nota) {
+    let formatedData = {
+        nome: filme,
+        diretor: { nome: diretor },
+        elenco: atores.map(ator => { return { nome: ator } }),
+        nome: nota
+    };
+    return JSON.stringify(formatedData);
+
+}
+
 function formHandle(e) {
     e.preventDefault();
     // nesta linha definimos o alvo que i input nota e seu valor (value)
@@ -48,11 +60,12 @@ function formHandle(e) {
     // e com o map para cada elemento do vetor estou retornando o elmento.value, i.e, 
     //o valor deste elemento para grava-lo no BD
     const atores = Array.from(e.target.ator).map(ator => ator.value);
-    console.log(filme);
+    /* console.log(filme);
     console.log(diretor);
     console.log(nota);
     console.log(atores);
-
+ */
+    console.log(formDataToJsonMapper(filme, diretor, atores, nota));
     //console.log(e.target.ator[0].value);
     //const filme = e.target.filme.value
 }
