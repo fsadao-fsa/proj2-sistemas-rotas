@@ -65,7 +65,7 @@ function formDataToJsonMapper(filme, diretor, atores, nota) {
 }
 
 //informa que esta função sera assincrona. Existe um promessa que irar retornar que foi feito
-async function formHandle(e) {
+async function formHandle(e, setMessage) {
     e.preventDefault();
     // nesta linha definimos o alvo que i input nota e seu valor (value)
     //console.log(e.target.nota.value);
@@ -88,7 +88,15 @@ async function formHandle(e) {
     */
     const jsonData = formDataToJsonMapper(filme, diretor, atores, nota);
     const axiosConfig = { headers: { 'Content-Type': 'application/json' } };
-    await axios.post(BACKEND_URL + "/filmes", jsonData, axiosConfig);
+
+    try {
+        await axios.post(BACKEND_URL + "/filmes", jsonData, axiosConfig);
+        setMessage("O filme " + filme + " foi cadastrado com sucesso!");
+    }
+    catch (error) {
+        console.log(error);
+        setMessage("Erro ao cadastrar o filme: " + filme + " :" + error.message);
+    }
     //console.log(jsonData);
     //console.log(formDataToJsonMapper(filme, diretor, atores, nota));
     //console.log(e.target.ator[0].value);
@@ -98,12 +106,14 @@ async function formHandle(e) {
 export function Home() {
 
     const [castSize, setCastSize] = useState(1);
+    const [submitMessage, setsubmitMessage] = useState("");
 
 
 
     return (
         <div className="content">
             <h1>HOME</h1>
+            {submitMessage}
             <div className="home-form">
                 {/*qdo eu coloco a tag <form> todos os inputs passam a fazer parte 
                 deste <form>
@@ -112,7 +122,7 @@ export function Home() {
                 qdo acontece um evento. Para parar atualização utizamos os e.preventDefault() e o
                 console para exibir o e e o entendermos   
                 await espera que a função aconteça*/}
-                <form onSubmit={async (e) => await formHandle(e)}>
+                <form onSubmit={async (e) => await formHandle(e, setsubmitMessage)}>
                     <h3 className="home-form">Inserir novo Filme:</h3>
                     <p className="home-form"><input className="home-form" size={40} name="filme" type="text" placeholder="Nome do Filme" /></p>
                     <p className="home-form"><input className="home-form" size={40} name="diretor" type="text" placeholder="Nome do Diretor" /></p>
