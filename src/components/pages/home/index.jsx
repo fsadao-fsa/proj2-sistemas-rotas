@@ -3,6 +3,7 @@ import { BsFilePlusFill as PlusIcon } from "react-icons/bs";
 import { BsFileMinusFill as MinusIcon } from "react-icons/bs";
 import { useState } from "react";
 import { BACKEND_URL } from "../../../config";
+import { Message, MESSAGE_TYPE } from "../../Message";
 
 import axios from "axios";
 
@@ -91,11 +92,22 @@ async function formHandle(e, setMessage) {
 
     try {
         await axios.post(BACKEND_URL + "/filmes", jsonData, axiosConfig);
-        setMessage("O filme " + filme + " foi cadastrado com sucesso!");
+
+        const titulo = "Cadastro com Sucesso!"
+        const message = filme + " foi cadastrado com sucesso!";
+
+
+        setMessage(<Message titulo={titulo} message={message} type={MESSAGE_TYPE.SUCCESS} />);
+        //setMessage("O filme " + filme + " foi cadastrado com sucesso!");
     }
     catch (error) {
-        console.log(error);
-        setMessage("Erro ao cadastrar o filme: " + filme + " :" + error.message);
+
+        const titulo = "Erro no Cadastro!"
+        const message = error.message;
+
+        setMessage(<Message titulo={titulo} message={message} type={MESSAGE_TYPE.ERROR} />);
+        //console.log(error);
+        //setMessage("Erro ao cadastrar o filme: " + filme + " :" + error.message);
     }
     //console.log(jsonData);
     //console.log(formDataToJsonMapper(filme, diretor, atores, nota));

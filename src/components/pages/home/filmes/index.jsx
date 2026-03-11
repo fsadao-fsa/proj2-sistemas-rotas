@@ -50,6 +50,9 @@ export function Filmes() {
          */
         axios.get(BACKEND_URL + "/filmes")
             .then(function (response) {
+                // este if, se response.data está vazio, então mantém a mensagem "Nada a mostra" acima.
+                if (response.data == "")
+                    return;
                 setFilmes(filmesHandler(response.data));
             })
             .catch(function (error) {
