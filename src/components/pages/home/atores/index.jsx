@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import "./style.css";
 import { BACKEND_URL } from "../../../../config";
 import axios from "axios";

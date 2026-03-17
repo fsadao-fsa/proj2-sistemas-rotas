@@ -38,6 +38,7 @@ export function Diretores() {
       .get(BACKEND_URL + "/diretores")
       .then(function (response) {
         // este if, se response.data está vazio, então mantém a mensagem "Nada a mostra" acima.
+        // eslint-disable-next-line eqeqeq
         if (response.data == "") return;
         setDiretores(diretoresHandler(response.data));
       })
