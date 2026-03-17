@@ -3,8 +3,7 @@ import { BsFilePlusFill as PlusIcon } from "react-icons/bs";
 import { BsFileMinusFill as MinusIcon } from "react-icons/bs";
 import { useState } from "react";
 import { BACKEND_URL } from "../../../config";
-import { Message, MESSAGE_TYPE } from "../../Message";
-
+import { Message, MESSAGE_TYPE } from "../../message";
 import axios from "axios";
 
 function decreaseCastSize(castSize, setCastSize) {

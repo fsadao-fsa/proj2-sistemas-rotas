@@ -16,7 +16,7 @@ export function Menu() {
       </nav>
       <nav className="menu">
         <Link className="menu" to="/diretores">
-          PROFESSORES
+          DIRETORES
         </Link>
       </nav>
       <nav className="menu">
